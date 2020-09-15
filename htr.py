@@ -1,6 +1,7 @@
 #Importing required libraries, i.e. OpenCV, Numpy and Tensor Flow
 import cv2 as cv
 import numpy as np
+import matplotlib.pyplot as plt
 import tensorflow as tf
 
 #importing the dataset form mnist
@@ -21,3 +22,6 @@ model=tf.keras.models.Sequential([
 ])
 model.compile(optimizer='adam',loss='sparse_categorical_crossentropy',metrics=['accuracy'])
 model.fit(x_train,y_train,epochs=5)
+loss,accuracy=model.evaluate(x_test,y_test)
+print(accuracy)
+print(loss)
