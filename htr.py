@@ -12,9 +12,12 @@ mnist=tf.keras.datasets.mnist
 x_train = tf.keras.utils.normalize(x_train, axis=1)
 x_test = tf.keras.utils.normalize(x_test, axis=1)
 
-#defining the model, which'll have a input layer, two hidden layers and an output layer
-model = tf.keras.models.Sequential()
-model.add(tf.keras.layers.Flatten(input_shape=(28,28)))  #flatten means it's a simple feet forwaed neural network
-model.add(tf.keras.layers.Dense(units=128, activation=tf.nn.relu))  #dense means all the neurons are connected to
-model.add(tf.keras.layers.Dense(units=128, activation=tf.nn.relu))  #previous and the next layer
-model.add(tf.keras.layers.Dense(units=10, activation=tf.nn.softmax))
+#defining the model, which will have a input layer, two hidden layers and an output layer
+model=tf.keras.models.Sequential([
+    tf.keras.layers.Flatten(input_shape=(28,28)),   #flatten means it's a simple feet forwaed neural network
+    tf.keras.layers.Dense(units=128,activation=tf.nn.relu),   #dense means all the neurons are connected to
+    tf.keras.layers.Dense(units=128,activation=tf.nn.relu),   #previous and the next layer
+    tf.keras.layers.Dense(units=10,activation=tf.nn.softmax)
+])
+model.compile(optimizer='adam',loss='sparse_categorical_crossentropy',metrics=['accuracy'])
+model.fit(x_train,y_train,epochs=5)
