@@ -1,2 +1,11 @@
 # Handwritten-text-recognition
-Handwritten text recognition system implemented with TensorFlow and trained on the the MNIST database of handwritten digits. This Neural Network model will recognise a single number contained in the image. We will be using Python3, numpy, TensorFlow 2.3 and OpenCV.
+This Neural Network model will recognise a single number contained in the image. The system is trained on the the MNIST database of handwritten digits.  
+
+Accuracy:97.77%
+
+Tools:
+Python 3
+NumPy
+Matplotlib
+Keras and Tensorflow
+OpenCV
